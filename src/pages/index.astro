@@ -1,8 +1,41 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const services = [
+	{
+		title: "Web Development",
+		href: "data-management",
+		image: "/blog-placeholder-1.jpg",
+		subtitle:"Data Management",
+		list: ["Data Collection", "Data Analysis", "Data Visualization"],
+		description:
+			"I build websites and web applications using modern technologies.",
+	},
+	{
+		title: "Web Development",
+		href: "data-management",
+		image: "/blog-placeholder-1.jpg",
+		subtitle:
+			"I build websites and web applications using modern technologies.",
+		list: ["Web Design", "Web Development"],
+		description:
+			"I build websites and web applications using modern technologies.",
+	},
+	{
+		title: "Web Development",
+		href: "data-management",
+		image: "/blog-placeholder-1.jpg",
+		subtitle:
+			"I build websites and web applications using modern technologies.",
+		list: ["Web Design", "Web Development"],
+		description:
+			"I build websites and web applications using modern technologies.",
+	},
+];
 ---
 
 <!doctype html>
@@ -10,40 +43,73 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+	<body class="min-h-screen flex flex-col">
+		<Nav />
+		<header class="bg-blue-200">
+			<h1 class="text-2xl font-bold">{SITE_TITLE}</h1>
+			<p class="text-gray-500">{SITE_DESCRIPTION}</p>
+		</header>
+		<main class="flex-1">
+			<div class="container mx-auto px-2 py-4">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+				blanditiis deserunt minus tenetur repellat fuga possimus, omnis
+				enim, nihil accusantium ad laborum dolores doloremque, animi
+				eligendi cum consequuntur quos deleniti!
+
+				<section id="services" class="mb-12">
+					<h2 class="text-2xl font-bold text-center uppercase mb-4">
+						Services
+					</h2>
+					<ul class="flex flex-col gap-4">
+						{
+							services.map((service) => (
+								<li class="flex flex-col items-center gap-4 md:flex-row odd:md:flex-row-reverse">
+									<div class="flex-1">
+										<img
+											src={service.image}
+											alt={service.title}
+											class="w-full h-full object-cover"
+										/>
+									</div>
+									<div class="flex-1">
+										<a href={`/services/#${service.href}`} class="uppercase">{service.title}</a>
+										<p class="text-2xl font-bold">{service.subtitle}</p>
+										<ul class="list-disc list-inside">
+											{service.list.map((item) => (
+												<li>{item}</li>
+											))}
+										</ul>
+										<p>{service.description}</p>
+									</div>
+								</li>
+							))
+						}
+					</ul>
+				</section>
+
+				<section id="about-me" class="mb-12">
+					<h2 class="text-2xl font-bold text-center uppercase mb-4">ABOUT ME</h2>
+					<div class="flex flex-col items-center gap-4 md:flex-row">
+						<div class="flex-1">
+							<img src="/blog-placeholder-1.jpg" alt="About Me" class="w-full h-full object-cover" />
+						</div>
+						<div class="flex-1">
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur repellat fuga possimus, omnis enim, nihil accusantium ad laborum dolores doloremque, animi eligendi cum consequuntur quos deleniti!</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur repellat fuga possimus, omnis enim, nihil accusantium ad laborum dolores doloremque, animi eligendi cum consequuntur quos deleniti!</p>
+						</div>
+					</div>
+				</section>
+
+				<section id="contact" class="mb-12">
+					<h2 class="text-2xl font-bold text-center uppercase mb-4">CONTACT</h2>
+					<form action="/api/contact" method="POST">
+						<input type="text" name="name" placeholder="Name" / class="w-full p-2 border border-gray-300 rounded-md mb-4">
+						<input type="email" name="email" placeholder="Email" / class="w-full p-2 border border-gray-300 rounded-md mb-4">
+						<textarea name="message" placeholder="Message" rows="5" / class="w-full p-2 border border-gray-300 rounded-md mb-4"></textarea>
+						<button type="submit" / class="w-full p-2 bg-accent text-white rounded-md cursor-pointer uppercase">Send your message</button>
+					</form>
+				</section>
+			</div>
 		</main>
 		<Footer />
 	</body>
