@@ -4,12 +4,13 @@ import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Cases from "../components/Cases.tsx";
 
 const services = [
 	{
 		title: "Web Development",
 		href: "data-management",
-		image: "/blog-placeholder-1.jpg",
+		image: "/service1.jpg",
 		subtitle:"Data Management",
 		list: ["Data Collection", "Data Analysis", "Data Visualization"],
 		description:
@@ -18,7 +19,7 @@ const services = [
 	{
 		title: "Web Development",
 		href: "data-management",
-		image: "/blog-placeholder-1.jpg",
+		image: "/service2.jpg",
 		subtitle:
 			"I build websites and web applications using modern technologies.",
 		list: ["Web Design", "Web Development"],
@@ -28,7 +29,7 @@ const services = [
 	{
 		title: "Web Development",
 		href: "data-management",
-		image: "/blog-placeholder-1.jpg",
+		image: "/service3.jpg",
 		subtitle:
 			"I build websites and web applications using modern technologies.",
 		list: ["Web Design", "Web Development"],
@@ -45,25 +46,30 @@ const services = [
 	</head>
 	<body class="min-h-screen flex flex-col">
 		<Nav />
-		<header class="bg-blue-200">
-			<h1 class="text-2xl font-bold">{SITE_TITLE}</h1>
-			<p class="text-gray-500">{SITE_DESCRIPTION}</p>
+
+		<header class="bg-[#DDEFFF]">
+			<div class="container mx-auto text-center">
+				<div class="flex flex-col items-center gap-4 my-4">
+					<h1 class="text-3xl font-bold">{SITE_TITLE}</h1>
+					<p class="text-gray-500">{SITE_DESCRIPTION}</p>
+				</div>
+				<div class="h-[50vh]">
+					<img src="/hero.png" alt="Hero" class="w-full h-full object-contain">
+				</div>
+			</div>
 		</header>
+
 		<main class="flex-1">
 			<div class="container mx-auto px-2 py-4">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-				blanditiis deserunt minus tenetur repellat fuga possimus, omnis
-				enim, nihil accusantium ad laborum dolores doloremque, animi
-				eligendi cum consequuntur quos deleniti!
 
-				<section id="services" class="mb-12">
+				<section id="services" class="pt-4 md:pt-24">
 					<h2 class="text-2xl font-bold text-center uppercase mb-4">
-						Services
+						Services & Solutions
 					</h2>
 					<ul class="flex flex-col gap-4">
 						{
 							services.map((service) => (
-								<li class="flex flex-col items-center gap-4 md:flex-row odd:md:flex-row-reverse">
+								<li class="flex flex-col items-start md:items-center gap-4 md:flex-row even:md:flex-row-reverse">
 									<div class="flex-1">
 										<img
 											src={service.image}
@@ -87,28 +93,47 @@ const services = [
 					</ul>
 				</section>
 
-				<section id="about-me" class="mb-12">
+				<section id="cases" class="pt-4 md:pt-24">
+					<h2 class="text-2xl font-bold text-center uppercase mb-4">Cases</h2>
+					<Cases client:load />
+				</section>
+
+				<section id="about" class="md:px-24 pt-4 md:pt-24">
 					<h2 class="text-2xl font-bold text-center uppercase mb-4">ABOUT ME</h2>
-					<div class="flex flex-col items-center gap-4 md:flex-row">
-						<div class="flex-1">
-							<img src="/blog-placeholder-1.jpg" alt="About Me" class="w-full h-full object-cover" />
+					<div class="flex flex-col items-center gap-8 md:flex-row">
+						<div class="flex-1 flex flex-col gap-4">
+							<h3 class="text-2xl font-bold">HI, I'm Ian</h3>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur repellat fuga possimus, omnis enim, nihil accusantium ad laborum dolores doloremque, animi eligendi cum consequuntur quos deleniti!</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur repellat fuga possimus, omnis enim, nihil accusantium ad laborum dolores doloremque, animi eligendi cum consequuntur quos deleniti!</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur repellat fuga possimus, omnis enim, nihil accusantium ad laborum dolores doloremque, animi eligendi cum consequuntur quos deleniti!</p>
+							<p>Lorem ipsum dolor.</p>
 						</div>
 						<div class="flex-1">
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur repellat fuga possimus, omnis enim, nihil accusantium ad laborum dolores doloremque, animi eligendi cum consequuntur quos deleniti!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur repellat fuga possimus, omnis enim, nihil accusantium ad laborum dolores doloremque, animi eligendi cum consequuntur quos deleniti!</p>
+							<img src="/me.jpg" alt="About Me" class="w-full h-full object-cover" />
 						</div>
 					</div>
 				</section>
 
-				<section id="contact" class="mb-12">
-					<h2 class="text-2xl font-bold text-center uppercase mb-4">CONTACT</h2>
-					<form action="/api/contact" method="POST">
-						<input type="text" name="name" placeholder="Name" / class="w-full p-2 border border-gray-300 rounded-md mb-4">
-						<input type="email" name="email" placeholder="Email" / class="w-full p-2 border border-gray-300 rounded-md mb-4">
-						<textarea name="message" placeholder="Message" rows="5" / class="w-full p-2 border border-gray-300 rounded-md mb-4"></textarea>
-						<button type="submit" / class="w-full p-2 bg-accent text-white rounded-md cursor-pointer uppercase">Send your message</button>
+				<section id="contact" class="text-center pt-4 md:pt-24 mb-12">
+					<h2 class="text-2xl font-bold text-center uppercase mb-4">GET IN TOUCH</h2>
+					<p class="mb-4">Fill out the form or feel free to send a message on <a href="https://www.linkedin.com/in/ianify" target="_blank">LinkedIn</a></p>
+					<form action="/api/contact" method="POST" class="flex flex-col items-center gap-4">
+						<div class="flex flex-col gap-2 w-full">
+							<label for="name" class="text-left">Name</label>
+							<input type="text" name="name" placeholder="John Doe" required / class="w-full p-2 border border-gray-300 rounded-xs">
+						</div>
+						<div class="flex flex-col gap-2 w-full">
+							<label for="email" class="text-left">Email</label>
+							<input type="email" name="email" placeholder="email@example.com" required / class="w-full p-2 border border-gray-300 rounded-xs">
+						</div>
+						<div class="flex flex-col gap-2 w-full">
+							<label for="message" class="text-left">Message</label>
+							<textarea name="message" placeholder="Write your message here." rows="7" required / class="w-full p-2 border border-gray-300 rounded-xs"></textarea>
+						</div>
+						<button type="submit" / class="w-full p-2 bg-accent text-white rounded-xs cursor-pointer">Send your message</button>
 					</form>
 				</section>
+
 			</div>
 		</main>
 		<Footer />

@@ -2,6 +2,7 @@
 
  :root {
  	--accent: #0092FF;
+	scroll-behavior: smooth;
  }
 
  a {
