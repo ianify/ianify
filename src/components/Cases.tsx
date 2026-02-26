@@ -74,7 +74,7 @@ export default function Cases() {
 
                     {/* Content Section */}
                     <div className="flex-1 flex flex-col gap-4">
-                        <h3 className="text-3xl font-bold uppercase">{title}</h3>
+                        <h3 className="text-2xl font-bold">{title}</h3>
                         <a href={href} className="text-accent underline" target="_blank" rel="noreferrer">{href}</a>
                         <p className="text-gray-600">{description}</p>
                         
