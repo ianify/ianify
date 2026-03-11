@@ -3,7 +3,7 @@ import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 import BaseHead from "../components/BaseHead.astro";
-import { SITE_TITLE, AUTHOR, SITE_DESCRIPTION } from "../consts";
+import { SITE_TITLE, AUTHOR, SITE_DESCRIPTION, CONTACT_FORM_URL } from "../consts";
 import Cases from "../components/Cases.tsx";
 
 const services = [
@@ -54,28 +54,10 @@ const services = [
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE + " - " + SITE_DESCRIPTION} description={SITE_DESCRIPTION} />
 	</head>
 	<body class="min-h-screen flex flex-col">
 		<Nav />
-
-		<!-- <header class="bg-[#DDEFFF]">
-			<div class="container mx-auto text-center">
-				<div class="flex flex-col items-center gap-4 my-4">
-					<h1 class="text-3xl font-bold">{SITE_TITLE}</h1>
-					<div>
-						{services.map(i => {
-							return (
-								<span class="uppercase px-2">{i.title}</span>
-							)
-						})}
-					</div>
-				</div>
-				<div class="h-[50vh]">
-					<img src="/hero.png" alt="Hero" class="w-full h-full object-contain">
-				</div>
-			</div>
-		</header> -->
 
 		<header class="bg-[#DDEFFF] min-h-[70vh] py-8 bg-[url(/hero.png)] bg-bottom bg-no-repeat">
 			
@@ -167,26 +149,74 @@ const services = [
 							<h2 class="text-2xl font-bold text-center uppercase">GET IN TOUCH</h2>
 							<p>Fill out the form or feel free to send a message on <a href="https://www.linkedin.com/in/ianify" target="_blank">LinkedIn</a></p>
 						</div>
-						<form action="/api/contact" method="POST" class="flex flex-col items-center gap-4 w-full">
+						<form id="contact-form" action={CONTACT_FORM_URL} method="POST" class="flex flex-col items-center gap-4 w-full">
 							<div class="flex flex-col gap-2 w-full">
-								<label for="name" class="text-left">Name</label>
-								<input type="text" name="name" placeholder="John Doe" required / class="w-full p-2 border border-gray-300 rounded-xs">
+							  <label for="name" class="text-left">Name</label>
+							  <input type="text" name="name" placeholder="John Doe" required class="w-full p-2 border border-gray-300 rounded-xs" />
 							</div>
 							<div class="flex flex-col gap-2 w-full">
-								<label for="email" class="text-left">Email</label>
-								<input type="email" name="email" placeholder="email@example.com" required / class="w-full p-2 border border-gray-300 rounded-xs">
+							  <label for="email" class="text-left">Email</label>
+							  <input type="email" name="email" placeholder="email@example.com" required class="w-full p-2 border border-gray-300 rounded-xs" />
 							</div>
 							<div class="flex flex-col gap-2 w-full">
-								<label for="message" class="text-left">Message</label>
-								<textarea name="message" placeholder="Write your message here." rows="10" required / class="w-full p-2 border border-gray-300 rounded-xs"></textarea>
+							  <label for="message" class="text-left">Message</label>
+							  <textarea name="message" placeholder="Write your message here." rows="10" required class="w-full p-2 border border-gray-300 rounded-xs"></textarea>
 							</div>
-							<button type="submit" class="w-full p-2 bg-accent text-white rounded-xs cursor-pointer">Send your message</button>
-						</form>
+							<button id="contact-submit" type="submit" class="w-full p-2 bg-accent text-white rounded-xs cursor-pointer">Send your message</button>
+							<span class="hidden !bg-gray-500"></span>
+						  </form>
 					</div>
 				</section>
 
 			</div>
 		</main>
 		<Footer />
+		<script>
+			if (typeof window !== "undefined") {
+				window.addEventListener("DOMContentLoaded", () => {
+					const form = document.getElementById("contact-form") as HTMLFormElement | null;
+					if (!form) return;
+
+					const submitButton = form.querySelector("button[type='submit']") as HTMLButtonElement | null;
+					if (!submitButton) return;
+
+					const defaultLabel = submitButton.textContent || "Send your message";
+
+					form.addEventListener("submit", async (event) => {
+						event.preventDefault();
+
+						submitButton.disabled = true;
+						submitButton.textContent = "Sending...";
+						submitButton.classList.remove("bg-accent");
+						submitButton.classList.add("!bg-gray-500");
+
+						const data = new FormData(form);
+
+						try {
+							const response = await fetch(form.action, {
+								method: form.method,
+								body: data,
+							});
+
+							if (response.ok) {
+								submitButton.textContent = "Message sent";
+								form.reset();
+							} else {
+								submitButton.disabled = false;
+								submitButton.textContent = defaultLabel;
+								submitButton.classList.remove("!bg-gray-500");
+								submitButton.classList.add("bg-accent");
+							}
+						} catch (error) {
+							submitButton.disabled = false;
+							submitButton.textContent = defaultLabel;
+							submitButton.classList.remove("!bg-gray-500");
+							submitButton.classList.add("bg-accent");
+						}
+					});
+				});
+			}
+		</script>
 	</body>
 </html>
+
