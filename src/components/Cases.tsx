@@ -87,14 +87,14 @@ export default function Cases() {
                 >
                     {/* Image Section */}
                     <div className="flex-[2] w-full rounded-lg shadow-xl overflow-hidden">
-                        <img src={image} alt={title} className="w-full h-[400px] object-cover" />
+                        <img src={image} alt={title} className="w-full h-[300px] object-cover" />
                     </div>
 
                     {/* Content Section */}
                     <div className="flex-1 flex flex-col gap-4">
                         <h3 className="text-2xl font-bold">{title}</h3>
                         <a href={href} className="text-accent underline" target="_blank" rel="noreferrer">Visit the website</a>
-                        <p className="text-gray-600">{description}</p>
+                        <p className="text-gray-600">{description.substring(0,100)}...</p>
                         
                         <div className="flex gap-4 mt-4 justify-center md:justify-start">
                             <button onClick={() => paginate(-1)} className="px-4 py-2 bg-gray-200 rounded-xs">Prev</button>

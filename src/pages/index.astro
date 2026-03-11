@@ -13,7 +13,7 @@ const services = [
     "image": "/service-ai.jpg",
     "subtitle": "AI-Powered Solutions",
     "list": [
-      "AI Integration (ChatGPT, Gemini, DeepSeek, etc.)",
+      "AI Integration (ChatGPT, Gemini, DeepSeek)",
       "Chatbots and Conversational AI",
       "Multi-Agent Systems",
       "Model Customization (RAG & Fine-Tuning)"
@@ -94,7 +94,7 @@ const logos = ["/logo-hypera.svg", "/logo-mantecorp.svg", "/logo-cocari.svg", "/
 		<main class="flex-1">
 			<div class="container mx-auto px-2 py-4">
 
-				<section id="services" class="py-20 md:py-24">
+				<section id="services" class="py-8">
 					<h2 class="text-2xl font-bold text-center uppercase mb-8">
 						Services & Solutions
 					</h2>
@@ -109,7 +109,7 @@ const logos = ["/logo-hypera.svg", "/logo-mantecorp.svg", "/logo-cocari.svg", "/
 											class="w-full h-full object-cover"
 										/>
 									</div>
-									<div class="flex-1 flex flex-col gap-2">
+									<div class="flex-1 flex flex-col gap-2 p-2">
 										<a href={`/services/#${service.href}`} class="uppercase">{service.title}</a>
 										<p class="text-2xl font-bold">{service.subtitle}</p>
 										<ul class="list-disc list-inside">
@@ -125,14 +125,14 @@ const logos = ["/logo-hypera.svg", "/logo-mantecorp.svg", "/logo-cocari.svg", "/
 					</ul>
 				</section>
 
-				<section id="cases" class="py-20 md:py-24 min-h-screen flex items-center justify-center">
+				<section id="cases" class="py-12 min-h-screen flex items-center justify-center">
 					<div>
 						<h2 class="text-2xl font-bold text-center uppercase mb-4">Cases</h2>
 						<Cases client:load />
 					</div>
 				</section>
 
-				<section id="about" class="min-h-screen py-20 md:py-24 md:px-52 flex items-center justify-center">
+				<section id="about" class="min-h-screen py-12 lg:px-52 flex items-center justify-center">
 					
 					<div> 
 						<div>
@@ -157,7 +157,7 @@ const logos = ["/logo-hypera.svg", "/logo-mantecorp.svg", "/logo-cocari.svg", "/
 
 				</section>
 
-				<section id="contact" class="flex items-center justify-center py-20 md:py-24">
+				<section id="contact" class="flex items-center justify-center py-12">
 					<div class="w-full flex flex-col items-center gap-4">
 						<div class="text-center flex flex-col items-center gap-2">
 							<h2 class="text-2xl font-bold text-center uppercase">GET IN TOUCH</h2>
