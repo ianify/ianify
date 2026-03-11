@@ -3,6 +3,7 @@
 
 export const SITE_TITLE = "Ian Lima";
 export const AUTHOR = "Ian Lima";
+export const COPYRIGHT = "Ianify";
 export const SITE_DESCRIPTION = "Software Engineer";
 export const CONTACT_FORM_URL = "https://n8n.ianify.net/webhook/contact-form";
 export const SOCIAL_LINKS = [

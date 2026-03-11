@@ -49,6 +49,8 @@ const services = [
     "description": "Let’s transform raw data into actionable insights through reliable data pipelines, analysis, and visualization. By structuring and processing data effectively, I help teams monitor performance, uncover opportunities, and make better data-driven decisions."
   }
 ];
+
+const logos = ["/logo-hypera.svg", "/logo-mantecorp.svg", "/logo-cocari.svg", "/logo-vg.svg", "/logo-smartfit.svg"];
 ---
 
 <!doctype html>
@@ -76,6 +78,18 @@ const services = [
 			</div>
 
 		</header>
+
+		<section id="clients" class="p-4 bg-[#0092FF] -mt-1">
+			<ul class="flex items-center justify-center gap-4 space-x-1 md:space-x-8">
+				{logos.map(logo => {
+					return (
+						<li>
+							<img src={logo} alt="Logo" class="w-full h-full object-contain max-h-10 max-w-40" />
+						</li>
+					)
+				})}
+			</ul>
+		</section>
 
 		<main class="flex-1">
 			<div class="container mx-auto px-2 py-4">
