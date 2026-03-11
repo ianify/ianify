@@ -3,9 +3,9 @@
 Engenheiro de software com 8 anos de experiência construindo aplicações do zero à produção. Atuo com Python, TypeScript, Java, SQL, Docker e AWS, desenvolvendo soluções full stack, APIs e microsserviços escaláveis. Graduado em Análise e Desenvolvimento de Sistemas, com inglês nível C1, tenho atualmente me especializado na aplicação estratégica de inteligência artificial em produtos digitais. 
 
 
-## Tecnologias  
+## Tecnologias 
 
- - Python: FastAPI, Pandas, NumPy, UV 
+- Python: FastAPI, Pandas, NumPy, UV 
 
 - Java: Versões 17/11/6 (Spring Boot, Hibernate, Spring Data, JPA, JUnit, Mockito) 
 
