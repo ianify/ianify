@@ -3,16 +3,34 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const cases = [
     {
-        title: "Case 1",
-        href: "https://www.google.com",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur.",
-        image: "/case1.jpg",
+        title: "Hypera pharma",
+        href: "https://www.hypera.com.br",
+        description: "One of Brazil’s largest pharmaceutical companies, focused on the development, manufacturing, and commercialization of branded prescription drugs, consumer health (OTC) products, dermatology treatments, and generics.",
+        image: "/case-hypera.svg",
     },
     {
-        title: "Case 2",
-        href: "https://www.github.com",
-        description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.",
-        image: "/case1.jpg",
+        title: "Mantecorp Skincare",
+        href: "https://www.mantecorpskincare.com.br",
+        description: "A leading Brazilian dermocosmetics brand focused on developing high-efficacy, dermatologist-recommended products tailored to the specific needs of Brazilian skin.",
+        image: "/case-mantecorp.svg",
+    },
+    {
+        title: "Cocari - Digital Unit",
+        href: "https://play.google.com/store/apps/details?id=br.com.cocari.produtor.app",
+        description: "A digital platform serving more than 11,000 farmers, offering features such as commodity price quotes, financial transactions, and invoice issuance, enabling digital access to the cooperative’s services.",
+        image: "/case-cocari.svg",
+    },
+    {
+        title: "Áurea",
+        href: "https://aurea.app",
+        description: "A Brazilian educational platform, providing digital content and learning tools for undergraduate and postgraduate programs.",
+        image: "/case-aurea.svg",
+    },
+    {
+        title: "Smart Fit",
+        href: "https://www.smartfit.com.br",
+        description: "The largest fitness chain in Latin America, with more than 1,400 gyms across the region.",
+        image: "/case-smartfit.svg",
     },
 ];
 
@@ -75,7 +93,7 @@ export default function Cases() {
                     {/* Content Section */}
                     <div className="flex-1 flex flex-col gap-4">
                         <h3 className="text-2xl font-bold">{title}</h3>
-                        <a href={href} className="text-accent underline" target="_blank" rel="noreferrer">{href}</a>
+                        <a href={href} className="text-accent underline" target="_blank" rel="noreferrer">Visit the website</a>
                         <p className="text-gray-600">{description}</p>
                         
                         <div className="flex gap-4 mt-4 justify-center md:justify-start">

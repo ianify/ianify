@@ -7,35 +7,47 @@ import { SITE_TITLE, AUTHOR, SITE_DESCRIPTION } from "../consts";
 import Cases from "../components/Cases.tsx";
 
 const services = [
-	{
-		title: "Artificial Intelligence",
-		href: "data-management",
-		image: "/service1.jpg",
-		subtitle:"Data Management",
-		list: ["Data Collection", "Data Analysis", "Data Visualization"],
-		description:
-			"I build websites and web applications using modern technologies.",
-	},
-	{
-		title: "Software Development",
-		href: "data-management",
-		image: "/service2.jpg",
-		subtitle:
-			"I build websites and web applications using modern technologies.",
-		list: ["Web Design", "Web Development"],
-		description:
-			"I build websites and web applications using modern technologies.",
-	},
-	{
-		title: "Consulting",
-		href: "data-management",
-		image: "/service3.jpg",
-		subtitle:
-			"I build websites and web applications using modern technologies.",
-		list: ["Web Design", "Web Development"],
-		description:
-			"I build websites and web applications using modern technologies.",
-	},
+  {
+    "title": "Artificial Intelligence",
+    "href": "artificial-intelligence",
+    "image": "/service-ai.jpg",
+    "subtitle": "AI-Powered Solutions",
+    "list": [
+      "AI Integration (ChatGPT, Gemini, DeepSeek, etc.)",
+      "Chatbots and Conversational AI",
+      "Multi-Agent Systems",
+      "Model Customization (RAG & Fine-Tuning)"
+    ],
+    "description": "I help businesses leverage artificial intelligence to automate processes, extract insights from data, and build intelligent digital products. From AI-powered features to full AI integrations, I design practical solutions that deliver real business value."
+  },
+  {
+    "title": "Software Development",
+    "href": "software-development",
+    "image": "/service-software.jpg",
+    "subtitle": "Scalable Applications & Automation",
+    "list": [
+      "SaaS Applications",
+      "REST API Development",
+      "Process Automation",
+      "Microservices Architecture",
+      "System Architecture & Design",
+      "E-commerce Platforms"
+    ],
+    "description": "I design and build scalable digital products, including web applications, SaaS platforms, and backend systems. My focus is on clean architecture, performance, and reliability to ensure your software is maintainable and ready to scale as your business grows."
+  },
+  {
+    "title": "Data",
+    "href": "data",
+    "image": "/service-data.jpg",
+    "subtitle": "Raw data to insights",
+    "list": [
+      "Data Pipelines and Processing",
+      "Data Collection (SQL & NoSQL Databases)",
+      "Data Analysis with AI-Driven Insights",
+      "Data Visualization (Dashboards with Metrics and KPIs)"
+    ],
+    "description": "Let’s transform raw data into actionable insights through reliable data pipelines, analysis, and visualization. By structuring and processing data effectively, I help teams monitor performance, uncover opportunities, and make better data-driven decisions."
+  }
 ];
 ---
 
@@ -109,7 +121,7 @@ const services = [
 												<li>{item}</li>
 											))}
 										</ul>
-										<p>{service.description}</p>
+										{/* <p>{service.description}</p> */}
 									</div>
 								</li>
 							))
@@ -139,10 +151,10 @@ const services = [
 								<h3 class="text-3xl font-bold">
 									<span class="bg-black text-white px-3 py-2">I'm Ian</span>
 								</h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur repellat fuga possimus, omnis enim, nihil accusantium ad laborum dolores doloremque, animi eligendi cum consequuntur quos deleniti!</p>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur repellat fuga possimus, omnis enim, nihil accusantium ad laborum dolores doloremque, animi eligendi cum consequuntur quos deleniti!</p>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis deserunt minus tenetur repellat fuga possimus, omnis enim, nihil accusantium ad laborum dolores doloremque, animi eligendi cum consequuntur quos deleniti!</p>
-								<p>Lorem ipsum dolor.</p>
+								<p>I’m a Brazilian software engineer with 8 years of experience building applications from scratch to production.</p>
+								<p>I primarily work with Python, TypeScript, Java, SQL, Docker, and AWS, developing full-stack solutions, APIs, and scalable microservices.</p>
+								<p>I hold a degree in Information Technology and speak both English and Portuguese.</p>
+								<p><a href="#contact">Get in touch</a> and let’s work together.</p>
 							</article>
 						</div>
 					</div>
